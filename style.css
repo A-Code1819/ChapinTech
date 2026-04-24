@@ -1,0 +1,412 @@
+:root{
+  --cyan:#63e6ff;
+  --violet:#8b5cf6;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* =========================
+   HERO BASE
+========================= */
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: block; /* IMPORTANT: removes flex interference */
+  overflow: hidden;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(2,6,23,0.45) 0%,
+      rgba(2,6,23,0.25) 45%,
+      transparent 75%);
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =========================
+   SPACE BACKGROUND
+========================= */
+.bg-space{
+  position:absolute;
+  inset:0;
+  background:url("space-bg.jpg") center/cover no-repeat;
+  filter:brightness(.7) contrast(1.1);
+}
+
+/* LIGHT BURST CENTER */
+.bg-space::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(99,230,255,.35),
+      transparent 40%);
+
+  mix-blend-mode:screen;
+}
+
+/* =========================
+   LIGHT STREAKS (KEY DETAIL)
+========================= */
+.bg-streaks{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(99,230,255,.25), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(139,92,246,.25), transparent 60%);
+}
+
+.bg-streaks::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(99,230,255,.25), transparent 60%),
+    linear-gradient(-120deg, transparent 40%, rgba(139,92,246,.2), transparent 60%);
+
+  animation: streakMove 8s linear infinite;
+  opacity:.6;
+}
+
+/* =========================
+   VIGNETTE
+========================= */
+.bg-vignette{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,
+    transparent 40%,
+    rgba(0,0,0,.7) 100%);
+}
+
+/* =========================
+   HUD FRAME
+========================= */
+.hud-frame{
+  position:absolute;
+  inset:20px;
+  border-radius:30px;
+
+  border:1px solid rgba(99,230,255,.2);
+
+  box-shadow:
+    0 0 40px rgba(99,230,255,.1),
+    inset 0 0 20px rgba(255,255,255,.02);
+}
+
+/* =========================
+   NAV
+========================= */
+.nav{
+  position: relative;
+  z-index: 999;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 60px;
+
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap: 5px;
+}
+
+.logo img{
+  width: 70px;
+  height: auto;
+  filter:
+    drop-shadow(0 0 20px #63e6ff)
+    drop-shadow(0 0 50px #3ba7ff);
+}
+
+/* NAV LINKS */
+nav a{
+  margin:0 20px;
+  color:rgba(255,255,255,.85);
+  text-decoration:none;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--cyan);
+  box-shadow:0 0 10px var(--cyan);
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* BUTTON */
+.cta-top{
+  padding:10px 25px;
+  border-radius:40px;
+
+  border:1px solid rgba(99,230,255,.5);
+
+  box-shadow:0 0 25px rgba(99,230,255,.3);
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.hero-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
+
+  z-index: 5;
+}
+
+
+.hero-logo {
+  width: 280px; /* slightly bigger */
+  margin-bottom: 5px;
+  filter:
+    drop-shadow(0 0 35px rgba(99,230,255,.9))
+    drop-shadow(0 0 90px rgba(59,167,255,.6));
+
+  opacity: 1;
+}
+
+.brand-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 55px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  margin-bottom: 2px;
+
+  background: linear-gradient(90deg, #ffffff 0%, #e0f2fe 22%, #8be9ff 48%, #d9f99d 78%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headline {
+  font-size: 35px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 4px;
+  line-height: 1.1;
+  max-width: 900px;
+
+
+  background: linear-gradient(90deg, #bffaff 0%, #8fd7ff 28%, #c9ffd9 64%, #f0fdf4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtext {
+  font-size: 18px;
+  max-width: 800px;
+  margin-top: 2px;
+  font-size: 16px; 
+
+
+  opacity: 1;
+  color: rgba(255,255,255,.84);
+
+  background: linear-gradient(90deg, #d9f99d 0%, #8be9ff 40%, #bffaff 80%, #e0f2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+}
+
+.brand-title,
+.headline,
+.subtext {
+  text-shadow: 0 0 12px rgba(0,0,0,0.35);
+}
+
+/* CTA BUTTON BOTTOM */
+.cta-bottom {
+  position: absolute;
+  bottom: 60px; /* slightly tighter than 90 */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+}
+
+.main-btn {
+  pointer-events: auto; /* IMPORTANT (counteracts parent) */
+
+  padding: 14px 42px;
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  color: #001018;
+
+  background: linear-gradient(90deg, #63e6ff, #3ba7ff);
+
+  border: 1px solid rgba(99,230,255,.6);
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 25px rgba(99,230,255,.5),
+    0 0 60px rgba(59,167,255,.25);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.main-btn:hover {
+  transform: scale(1.06);
+
+  box-shadow:
+    0 0 35px rgba(99,230,255,.7),
+    0 0 90px rgba(59,167,255,.4);
+}
+
+/* ARROW */
+.arrow {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+
+  animation: bounce 1.5s infinite;
+  opacity: 0.8;
+
+  cursor: pointer;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+@keyframes bounce{
+  0%,100%{transform:rotate(45deg) translateY(0);}
+  50%{transform:rotate(45deg) translateY(8px);}
+}
+
+@keyframes streakMove{
+  from{transform:translateX(-10%)}
+  to{transform:translateX(10%)}
+}
+
+/* =========================
+   CANVAS STACKING
+========================= */
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+
+/* =========================
+   HUD OVERLAY (SCANLINES)
+========================= */
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+
+  mix-blend-mode: overlay;
+  opacity: .25;
+}
+
+/* =========================
+   PARALLAX (GPU SAFE)
+========================= */
+.hero-content {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* =========================
+   ENERGY PULSE
+========================= */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 50% 40%,
+      rgba(99,230,255,.22),
+      transparent 60%);
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes pulseEnergy {
+  0%,100% { opacity:.4; transform:scale(1); }
+  50% { opacity:.9; transform:scale(1.08); }
+}
+
+@keyframes glowPulse {
+  0%,100% {
+    filter: drop-shadow(0 0 20px #63e6ff);
+  }
+  50% {
+    filter: drop-shadow(0 0 60px #3ba7ff);
+  }
+}

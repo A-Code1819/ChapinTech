@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChapinTech | Soporte Técnico Futurista</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="chapintech-logo.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<canvas id="particles"></canvas>
+
+<section class="hero">
+
+  <div class="hud"></div>
+
+  <header class="nav">
+    <div class="logo">
+      <img src="chapintech-logo.png">
+      <span>CHAPINTECH</span>
+    </div>
+
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Contacto</a>
+    </nav>
+
+    <div class="cta-top">Contáctanos</div>
+  </header>
+
+  
+  <div class="hero-content">
+    <img src="chapintech-logo.png" class="hero-logo">
+
+    <h1 class="brand-title">CHAPINTECH</h1>
+
+    <h2 class="headline">Soporte Técnico Futurista<br>en Instalación</h2>
+
+    <p class="subtext">Soluciones profesionales para tus dispositivos y redes.</p>
+  </div>
+
+  <div class="cta-bottom">
+    <button class="main-btn">Solicitar Soporte</button>
+  </div>
+
+  <div class="socials-left absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col gap-4">
+    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">f</a>
+    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">●</a>
+    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">◎</a>
+    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">▶</a>
+  </div>
+</section>
+
+<script src="stars.js"></script>
+<script src="particles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'orbitron': ['Orbitron', 'sans-serif'],
+          'inter': ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+
+  // Efecto de hover en el botón principal
+  const mainBtn = document.querySelector('.main-btn');
+  mainBtn.addEventListener('mouseenter', () => {
+    mainBtn.classList.add('hovered');
+  });
+
+  mainBtn.addEventListener('mouseleave', () => {
+    mainBtn.classList.remove('hovered');
+  });
+
+  // Efecto de hover en los enlaces de navegación
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.classList.add('nav-hover');
+    });
+
+    link.addEventListener('mouseleave', () => {
+      link.classList.remove('nav-hover');
+    });
+  });
+
+  // scroll suave para los enlaces de navegación
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
