@@ -14,34 +14,53 @@
 </head>
 <body>
 
-<canvas id="stars"></canvas>
-<canvas id="particles"></canvas>
-
 <section class="hero">
 
+  <canvas id="stars"></canvas>
+  <canvas id="particles"></canvas>
+
+  <!-- BACKGROUND SYSTEM (THIS MAKES IT LOOK REAL) -->
+  <div class="bg-space"></div>
+  <div class="bg-streaks"></div>
+  <div class="bg-vignette"></div>
+  <div class="hud-frame"></div>
+  <div class="top-light"></div>
   <div class="hud"></div>
+  <div class="top-glow-line"></div>
 
-  <header class="nav">
-    <div class="logo">
-      <img src="chapintech-logo.png">
-      <span>CHAPINTECH</span>
-    </div>
+<header class="nav">
 
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Servicios</a>
-      <a href="#">Nosotros</a>
-      <a href="#">Contacto</a>
-    </nav>
+  <div class="logo">
+    <img src="chapintech-logo.png" alt="ChapinTech logo">
+    <span class="logo-text">ChapinTech</span>
+  </div>
 
-    <div class="cta-top">Contáctanos</div>
-  </header>
+  <nav class="nav-links">
 
+    <a href="#" class="nav-link">Inicio</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Servicios</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Nosotros</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Contacto</a>
+
+  </nav>
+
+  <div class="nav-actions">
+    <span class="contact-phone">+502 1234-5678</span>
+
+    <a href="#" class="cta-top">
+      Contáctanos
+    </a>
+  </div>
+</header>
   
   <div class="hero-content">
     <img src="chapintech-logo.png" class="hero-logo">
-
-    <h1 class="brand-title">CHAPINTECH</h1>
 
     <h2 class="headline">Soporte Técnico Futurista<br>en Instalación</h2>
 
@@ -51,14 +70,15 @@
   <div class="cta-bottom">
     <button class="main-btn">Solicitar Soporte</button>
   </div>
-
-  <div class="socials-left absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col gap-4">
-    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">f</a>
-    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">●</a>
-    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">◎</a>
-    <a href="#" class="social-pill w-12 h-12 rounded-xl flex items-center justify-center text-xl">▶</a>
-  </div>
 </section>
+
+<!-- 🔥 OUTSIDE HERO -->
+<div class="socials-left">
+  <a href="#" class="social-pill">f</a>
+  <a href="#" class="social-pill">●</a>
+  <a href="#" class="social-pill">◎</a>
+  <a href="#" class="social-pill">▶</a>
+</div>
 
 <script src="stars.js"></script>
 <script src="particles.js"></script>
