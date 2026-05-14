@@ -113,35 +113,33 @@ z-index:2;
 NAV 
 ========================= */
 .nav{
-  position: relative;
-  z-index: 999;
+position: relative;
+z-index: 999;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  flex-wrap: nowrap; /* IMPORTANT */
+width: calc(100% - 80px);
+max-width: 1280px;
 
-  width: calc(100% - 80px);
-  max-width: 1280px;
+margin: 22px auto 0;
 
-  margin: 22px auto 0;
+padding: 14px 24px;
 
-  padding:12px 24px;
+border-radius: 999px;
 
-  border-radius: 999px;
+background: rgba(4,19,44,.34);
 
-  background:rgba(5,18,35,.42);
+border: 1px solid rgba(255,255,255,.08);
 
-  border: 1px solid rgba(255,255,255,.08);
+backdrop-filter: blur(18px);
 
-  backdrop-filter: blur(18px);
+box-shadow:
+0 0 18px rgba(59,167,255,.08),
+inset 0 0 1px rgba(255,255,255,.04);
 
-  box-shadow:
-    0 0 18px rgba(59,167,255,.08),
-    inset 0 0 1px rgba(255,255,255,.04);
-
-  overflow: hidden;
+gap: 20px;
 }
 
 .nav a {
@@ -373,7 +371,7 @@ z-index:1;
   color: rgba(255,255,255,.88);
   text-decoration:none;
 
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
 
   letter-spacing: 0.01em;
@@ -386,17 +384,15 @@ z-index:1;
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  gap: 22px;
+gap: 18px;
 
-  flex: 1;
+flex: 1;
 
-  margin: 0 40px; /* IMPORTANT */
-
-  white-space: nowrap;
+min-width: 0;
 }
 
 .divider{
@@ -409,19 +405,15 @@ z-index:1;
 /* =========================
    RIGHT SIDE
 ========================= */
-
 .nav-actions{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
+display:flex;
+align-items:center;
 
-  gap: 24px;
+gap: 18px;
 
-  min-width: 340px; /* IMPORTANT */
+flex-shrink: 0;
 
-  flex-shrink: 0;
-
-  white-space: nowrap;
+white-space: nowrap;
 }
 
 .contact-phone{
@@ -451,7 +443,7 @@ z-index:1;
   align-items:center;
   justify-content:center;
 
-  padding: 12px 28px;
+  padding: 11px 22px;
 
   border-radius: 999px;
 

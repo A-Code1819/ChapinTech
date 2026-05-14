@@ -45,6 +45,9 @@
     <a href="#" class="nav-link">Servicios</a>
     <span class="divider"></span>
 
+    <a href="soporte.html" class="nav-link">Soporte</a>
+    <span class="divider"></span>
+
     <a href="#" class="nav-link">Nosotros</a>
     <span class="divider"></span>
 
@@ -68,7 +71,7 @@
 
     <p class="subtext">Soluciones profesionales para tus dispositivos y redes.</p>
 
-    <button class="main-btn">Solicitar Soporte</button>
+    <a href="soporte.html" class="main-btn">Solicitar Soporte</a>
   </div>
 </section>
 
@@ -106,29 +109,30 @@
     mainBtn.classList.remove('hovered');
   });
 
-  // Efecto de hover en los enlaces de navegación
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      link.classList.add('nav-hover');
-    });
+// Scroll suave SOLO para anchors internos
+navLinks.forEach(link => {
 
-    link.addEventListener('mouseleave', () => {
-      link.classList.remove('nav-hover');
-    });
-  });
+  link.addEventListener('click', (e) => {
 
-  // scroll suave para los enlaces de navegación
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+
+    // Solo aplicar smooth scroll a #sections
+    if (href.startsWith('#')) {
+
       e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
+
+      const targetElement = document.querySelector(href);
+
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
-    });
+    }
+
   });
+
+});
 </script>
 </body>
 </html>
